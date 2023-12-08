@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script>
+    function calculate()
+    {    console.log("calculate called")
+        let x = parseInt(document.getElementById("n1")["value"])
+        let y = parseInt(document.getElementById("n2").value)
+        let op = document.getElementById("operation").value
+
+        let result 
+        switch(op)
+        {
+            case '+' : result = x + y; break; 
+            case '-' : result = x - y; break;
+            case '*' : result = x * y; break;
+            case '/' : result = x / y; break;
+        }
+        //let outputstr = x+" "+op+" "+y+"="+result
+        let outputstr = `<i> ${x} ${op} ${y} = ${result} </i>`
+        document.getElementById("sp1").innerHTML = outputstr
+        //document.getElementById("sp1").innerText = outputstr
+
+    }
+    </script>
+  </head>
+  <body>
+     <pre>
+        Enter first number : <input id="n1" type="number" value="0"/>
+        Enter second number:  <input id="n2" type="number" value="0"/>
+        Select operation : <select id="operation" onchange="calculate()">
+            <option>select op</option>
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <p>The result is <span id="sp1"></span></p>
+     </pre>
+  </body>
+</html>

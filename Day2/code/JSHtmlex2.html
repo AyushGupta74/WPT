@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <script>
+        function f1(){
+        let inputelement = document.getElementById("i1")
+        let s = inputelement.value
+        //console.log(s.toUpperCase())
+        let ustr = s.toUpperCase()
+        document.getElementById("p1").innerHTML = "<b>"+ustr+"</b>"
+        }
+    </script>
+</head>
+<body>
+  Enter string : <input type="text" id="i1"  />
+  <input type="button" value="show uppercase" onclick="f1()"/>
+  <p id="p1"> </p>
+</body>
+</html>
