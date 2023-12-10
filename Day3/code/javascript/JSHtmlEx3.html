@@ -1,0 +1,46 @@
+<html>
+<head>
+  <script>
+    function f1()
+    {
+      let data = document.getElementById("i1").value
+      let uc = document.getElementById("r1").checked
+      let lc = document.getElementById("r2").checked
+      let tc = document.getElementById("r3").checked
+
+      let outputstr=data
+      if(uc)
+      {
+        outputstr = data.toUpperCase();
+      }
+      if(lc)
+      {
+        outputstr = data.toLowerCase();
+      }
+      if(tc)
+      {
+        let first = data.charAt(0).toUpperCase()
+        let second = data.substring(1).toLowerCase()
+        outputstr = first+second
+      }
+
+      document.getElementById("sp1").innerHTML = outputstr
+    }
+  </script>
+</head>
+
+
+<body>
+  Pound symbol = &#163;
+  <pre>
+    <label>
+        Enter Name:<input type='text' id="i1" onblur="f1()"/>
+    </label>
+    <label>Uppercase : <input id="r1" type="radio" name="format" onclick="f1()" /></label>
+    <label>Lowercase : <input id="r2" type="radio" name="format"onclick="f1()" /></label>
+    <label>Titlecase : <input id="r3" type="radio" name="format" onclick="f1()" /></label>
+
+    <p> Result - <span id="sp1"></span></p>
+  </pre>
+</body>
+</html>
