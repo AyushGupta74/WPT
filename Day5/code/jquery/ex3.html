@@ -1,0 +1,36 @@
+<!-- show a dropdown having options from 1 to 100-->
+<html>
+
+  <head>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $().ready(()=>{
+            let arr = ["red","green","blue"]
+            arr.forEach((ele)=>{
+            $("select").append(`<option>${ele}</option`)      
+            })
+            
+            $("#tf1").change(()=>{
+                let v = $("#tf1").val()
+                arr.push(v)
+                $("select").html("")
+                arr.sort().forEach((ele)=>{
+                    $("select").append(`<option>${ele}</option`)        
+                //$("select").append(`<option>${v}</option`)      
+                })
+            })
+            
+
+        })
+    </script>
+  </head>
+  <body>
+    <div>
+        Enter data : <input type="text" id="tf1"/>
+        <select></select>
+    </div>
+  </body>
+
+
+
+</html>

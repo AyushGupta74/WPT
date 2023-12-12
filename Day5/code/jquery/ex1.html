@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        //this callback passed to ready will execute
+        // after the document is ready for manipulation
+        //i.e. after DOM is created
+        // jQuery().ready(()=>{
+        //     console.log("hi from jquery")
+        // })
+        //this line Registers a callback func for document ready
+        $().ready(()=>{
+            console.log("document is ready for manipulation")
+           
+            //this line REGISTERS callback func for click of i1
+            $("#i1").click(()=>{
+                console.log("button clicked")
+            })
+
+            //this line REGISTERS /MAPS function for click of i2
+            $("#i2").click(()=>{
+                console.log("not ok")
+            })
+
+        })
+        console.log("last line")
+    </script>
+</head>
+
+<body>
+   <div>
+    This is a Jquery Example
+    <input type="button" value="ok" id="i1"  />
+    <input type="button" value="notok"  id="i2" />
+
+   </div>
+</body>
+</html>

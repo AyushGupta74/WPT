@@ -1,0 +1,28 @@
+<html>
+
+  <head>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $().ready(()=>{
+            let flag=false
+            $(":button").click(()=>{
+                if(!flag){
+                $("#p1").hide()
+                flag = true
+                }
+                else
+                {
+                    $("#p1").show()
+                    flag=false
+
+                }
+            })
+        })
+    </script>
+    </head>
+
+    <body>
+        <input type="button" value="toggle" />
+        <p id="p1"> MESSAGE </p>
+    </body>
+    </html>

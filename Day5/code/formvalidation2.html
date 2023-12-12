@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script>
+        function validate()
+        {
+
+            let d = document.getElementById("n1").value
+            if(d.trim().length == 0)
+            {
+                alert("blank string NA")
+            }
+            else
+            {
+                let form = document.getElementById("form1")
+                form.submit()
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+    <form action="first.html" id="form1">
+    Name : <input type="text" id="n1" />
+    <input type="button" onclick="validate()" value="submit" />
+    </form>
+</body>
+</html>
