@@ -1,0 +1,33 @@
+<html>
+
+<script src="./jquery/jquery-3.6.0.js"></script>
+<script>
+   $().ready(()=>{
+
+    $(":button").click(()=>{
+        let id = $("#idnum").val()
+        $.get(`https://reqres.in/api/users/${id}`,(resp,status)=>{
+
+            console.log(status,resp)
+            $("#p1").html(`${resp.data.first_name} ${resp.data.last_name}`)
+            $("#d1").append(`<img src="${resp.data.avatar}" width="300px" height="300px" alt="not found"/>`)
+        })
+    })
+
+   })
+
+    
+</script>
+
+
+<body>
+ <input type="number" min="1" max="10" id="idnum"/>
+ <input type="button"  
+        value="Get Data From Server"
+ />
+
+    <p id="p1"></p>
+    <div style="margin:10px;" id="d1">
+    </div>
+</body>
+</html>

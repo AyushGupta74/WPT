@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.descendants * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function(){
+   console.log($("div").parent())
+   $("div").children().each((i,ele)=>{
+        console.log(i,ele)
+   })
+   console.log($("div").children().first())
+   $("div").children().first().css({backgroundColor:"red",borderColor:"green",borderWidth:"5px"})
+   $("div").find(".second").css({backgroundColor:"blue"})
+})
+</script>
+</head>
+<body>
+<div class="descendants" style="width:500px;">div (current element) 
+  <p>p (child)
+    <span>
+        span 1
+    <span> span 2  <span >span3</span></span>
+    </span>   
+  </p>
+  <p class="second" >p (child)
+    <span>span 4</span>
+  </p> 
+</div>
+</body>
+</html>

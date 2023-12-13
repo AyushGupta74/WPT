@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $().ready(()=>{
+            $("#d1").click(()=>{
+                 $("#d1").html("")
+                 let m = $("#d1").data("msg")
+                 let c = $("#d1").data("count")
+                 for(let i=0;i<c;i++)
+                 {
+                    $("#d1").append(m+"<br>")
+                 }
+                 $("#d1").data("count",--c)
+            })
+
+        })
+    </script>
+  </head>
+
+  <body>
+
+    <div data-count="5" id="d1" data-msg="try-again" style="width:400px;height:300px;border:3px solid black"></div>
+    <p></p>
+  </body>
+
+</html>

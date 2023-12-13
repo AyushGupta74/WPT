@@ -1,0 +1,39 @@
+<html>
+
+<script>
+    function f1()
+    {
+        let http= new XMLHttpRequest()
+
+        //this function will be executed when the response
+        //arrives from the server
+        http.onload = function(){
+                console.log(http.responseText)
+                let obj = JSON.parse(http.responseText)
+              //  console.log(obj.data.first_name,obj.data.last_name)
+    document.getElementById("p1").innerHTML=`${obj.data.first_name}  ${obj.data.last_name}`
+    document.getElementById("d1").innerHTML=`<img src="${obj.data.avatar}" width="300px" height="300px" alt="not found"/>`
+
+        }
+
+        //the url is accepting the PATH PARAMETER
+        let id= document.getElementById("idnum").value
+        http.open("GET",`https://reqres.in/api/users/${id}`) //create request
+        http.send() //send the httprequest
+
+
+    }
+</script>
+
+
+<body>
+ <input type="number" min="1" max="10" id="idnum"/>
+ <input type="button"  
+        value="Get Data From Server"
+        onclick="f1()" />
+
+    <p id="p1"></p>
+    <div style="margin:10px;" id="d1">
+    </div>
+</body>
+</html>
