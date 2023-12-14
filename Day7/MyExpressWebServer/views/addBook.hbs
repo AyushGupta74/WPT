@@ -1,0 +1,22 @@
+<html>
+    <script>
+        function add()
+        {
+            var id= document.getElementById("bookId").value;
+            var name= document.getElementById("bookName").value;
+
+            var http = new XMLHttpRequest();
+            http.onload = function(){
+                alert(http.response)
+            }
+            http.open('POST','/book/savebook/'+id+"/"+name)
+            http.send();
+
+        }
+    </script>
+    <body>
+        book Id :<input type="text" id="bookId" /> <br><br>
+        book Name :<input type="text" id="bookName" /> <br><br>
+        <button onclick="add()" >Add Book</button>
+    </body>
+</html>

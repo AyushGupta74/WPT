@@ -1,0 +1,24 @@
+ <script>
+        function delete12()
+        {
+            var id= document.getElementById("bookId").value;
+            var jsondata ={"bookId":id}
+
+            console.log("here")
+
+            var http = new XMLHttpRequest();
+            http.onload = function(){
+                alert(http.response)
+            }
+            
+            http.open('DELETE','/book/deletebook')
+            http.setRequestHeader("Content-Type", "application/json");
+            http.send(JSON.stringify(jsondata));
+
+        }
+    </script>
+    <body>
+        book Id :<input type="text" id="bookId" /> <br><br>
+        <button onclick="delete12()" >Delete Book</button>
+    </body>
+</html>

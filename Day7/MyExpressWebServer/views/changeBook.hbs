@@ -1,0 +1,21 @@
+ <script>
+        function change()
+        {
+            var id= document.getElementById("bookId").value;
+            var cost= document.getElementById("bookCost").value;
+
+            var http = new XMLHttpRequest();
+            http.onload = function(){
+                alert(http.response)
+            }
+            http.open('PUT','/book/changebook?bookId='+id+"&bookCost="+cost)
+            http.send();
+
+        }
+    </script>
+    <body>
+        book Id :<input type="text" id="bookId" /> <br><br>
+        book COST :<input type="text" id="bookCost" /> <br><br>
+        <button onclick="change()" >Change Cost</button>
+    </body>
+</html>

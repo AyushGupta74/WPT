@@ -1,0 +1,25 @@
+<html>
+<script>
+    function f1()
+    {
+        let http = new XMLHttpRequest()
+        http.onload = function()
+        {
+            console.log(http.responseText)
+        }
+        http.open("GET","http://localhost:7000")
+        http.send()
+    }
+</script>
+
+
+
+<body>
+    <form action="http://localhost:7000/postmsg" method="POST">
+        <input type="submit" value="post" />
+        <input type="button" value=" GET using AJAX" onclick="f1()" />
+    </form>
+</body>
+
+
+</html>

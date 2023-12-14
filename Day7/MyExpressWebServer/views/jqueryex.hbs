@@ -1,0 +1,88 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>"></script>
+    <script>
+        $(document).ready(()=>{
+        
+        $('#get').click(()=>{
+
+            $.get("/maths/table/2",(data,status)=>{
+                $('#d1').text(data)
+            })
+        })
+
+        $('#post').click(()=>{
+            
+            var n1 = $('#n1').val()
+            var n2 = $('#n2').val()
+            var op = $('#op').val()
+            console.log("here",n1,n2,op)
+            obj ={num1:n1,num2:n2,op:op}
+
+            $.ajax(
+                {
+                    url:'/maths/doJob',
+                    type:'POST',
+                    data: JSON.stringify(obj),
+                    success : function(respdata)
+                    {
+                        $('#somid').text(respdata)
+                    },
+                    beforeSend:function(request)
+                    {
+                        request.setRequestHeader('Content-Type', 'application/json')
+                    }
+                }
+            )
+  /*         
+        $('#put').click(()=>{
+              var n3 = $('#n3').val()
+                $.ajax(
+                    {
+                        url:'/maths/square',
+                        type:"PUT",
+                        beforeSend:(xhr,settings)=>{xhr.setRequestHeader('Content-Type','application/json')},
+                        data:JSON.stringify({"num":n3}),
+                        success:(data,status)=>{$('#d1').text(data)}
+
+
+                    }
+                )
+
+        })
+        }
+        $('#delete').click(()=>{
+            $.ajax({
+                url:'/maths/remove',
+                success:(data,status)=>{$('#d1').text(data)},
+                type:'DELETE'
+            })*/
+        })
+
+
+        })
+    </script>
+ <body>
+  
+  <button id="get">GET</button>
+  <br>
+  <div>
+  <input type="number" id="n1" /><br>
+  <input type="number" id="n2" /><br>
+  <select id="op">
+      <option>+</option><option>-</option><option>*</option><option>/</option>
+  </select><br>
+  <button id="post">POST</button>
+  </div>
+  <br>
+  <div>
+    <input type="number" id="n3" /><br>
+  <button id="put">PUT</button>
+  </div>
+  <br>
+  <button id="delete">DELETE</button>
+
+  <div id="d1">
+
+  </div>
+ </body>
+</html>

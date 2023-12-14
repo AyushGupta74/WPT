@@ -1,0 +1,65 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>">
+
+  <script>
+    $(document).ready(()=>{
+       
+        $("#b1").click(()=>{
+            $.get("message",(responsedata)=>{
+                    console.log(responsedata)
+                $("#p1").html(`<h3>Message : ${responsedata.message}</h3>`)
+                $("#p2").html(`<h3>Sender : ${responsedata.sender}</h3>`)
+            })
+        })
+
+        $("#b2").click(()=>{
+            let n = $("#num").val()
+            let obj ={num:n}
+            $.ajax(
+                {
+                    url:'square',
+                    type:'POST',
+                    data: JSON.stringify(obj),
+                    success : function(respdata)
+                    {
+                        $("#p1").html(`<h4>${respdata.sqr}</h4>`)
+                    },
+                    beforeSend:function(request)
+                    {
+                        request.setRequestHeader('Content-Type', 'application/json')
+                    }
+                }
+            )
+        })
+
+        $("#b3").click(()=>{
+           $.ajax(
+            {
+                url:"https://reqres.in/api/users?page=2",
+                type:"GET",
+                success:function(res)
+                {
+                        $("#p1").text(JSON.stringify(res))
+                }
+
+
+
+            }
+        )
+        })
+    })
+    
+
+  </script>
+<body>
+    <h3>This is AJAX using JQUERY</h3>
+    <input type="button" id="b1" value="getmessage" />
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <input type="number" id="num" >
+    <input type="button" id="b2" value="postobject" />
+    <input type="button" id="b3" value="getfromreqres" />
+
+</body>
+
+</html>
