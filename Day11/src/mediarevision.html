@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+<style>
+   .parentdiv div{
+        border: 3px solid lightblue;
+        margin:10px;
+        padding:10px;
+        box-sizing: border-box;
+        width:50%; 
+        display: flex;
+        justify-content: center;
+    }
+    .parentdiv{
+        display: flex;
+    }
+
+    @media screen and (min-width:451px)and (max-width:786px) {
+          .parentdiv div{
+            color:tomato ;
+          }
+    }
+
+    @media (max-width:450px){
+         .parentdiv div{
+            color:blue;            
+            width:100%;
+         }
+         .parentdiv{
+            display:block;
+            
+         }
+    }
+
+
+
+
+
+</style>
+</head>
+
+<body>
+   <div class="parentdiv">
+       <div>   React is a front end technology that is very widely used
+        it is based on javascript
+        it was first built for facebook
+        This is a react logo.
+        React is a front end technology that is very widely used
+        it is based on javascript
+        it was first built for facebook</div>
+       
+        <div><img src="./logo192.png" ></img</div>
+   </div>
+</body>
+</html>
