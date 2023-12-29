@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script>
+            function validate(){
+                let id = document.getElementById("name").value
+                if(id.trim().length ==0){
+                    alert("blank string NA")
+                }
+                else{
+                    let form = document.getElementById("form1")
+                    form.submit()
+                }
+            }
+        </script>
+        <style>
+            *{
+                text-align: left;
+                padding: 10;
+            }
+            .table1{
+              color:blue;  
+            }
+            #name{
+                background-color: aquamarine;
+                width: fit-content;
+            }
+        </style>
+    </head>
+    <form action="Test.html" id="form1">
+        <h1>Form</h1>
+        <body>
+            <table class="table1">
+                
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input 
+                        type="text" 
+                        id="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input 
+                        type="password" 
+                        required minlength="4" 
+                        maxlength="10" 
+                        id="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input 
+                        type="button" 
+                        onclick="validate()" 
+                        value="submit">
+                    </td>
+                </tr>
+
+            </table>
+        </body>
+    </form>
+
+</html>
