@@ -1,3 +1,10 @@
+
+Question-1:
+
+// write a react class component that displays a table of students and marks from a json array of objects.
+// for example arr=[{name:"Ayush", marks:100},{name:"Pris",marks:100}, ..........}] 
+// put a delete button on every row. If the user clicks the delete button, then that row should be deleted from the array.
+
 ####### App.js #######
 
 import React from 'react';
@@ -17,10 +24,6 @@ export default App;
 *****************************************************************************************
 
 ####### StudentTable.js #######
-
-// write a react class component that displays a table of students and marks from a json array of objects.
-// for example arr=[{name:"Ayush", marks:100},{name:"Pris",marks:100}, ..........}] 
-// put a delete button on every row. If the user clicks the delete button, then that row should be deleted from the array.
 
 import React, { Component } from 'react';
 
@@ -86,5 +89,27 @@ class StudentTable extends Component {
 }
 
 export default StudentTable;
+
+*****************************************************************************************
+
+Question-2: 
+
+// Write a node example.js file.Create a json object having properties shapeName,shapeColor,shapeArea.Using spread operator create a copy of above object.Change the shapeColor in copy.Print details of original object and copy object, both should have different value for shapeColor.
+
+// json object
+let shape = { Name: 'Circle', Color: 'Red', Area: 3.14 };
+
+// Created a copy of json object using spread
+let shapeCopy = { ...shape };
+
+// Changing the color in copy
+shapeCopy.Color = 'Blue';
+
+// Displying Details...
+console.log('Original Object:');
+console.log(shape);
+
+console.log('Copy Object:');
+console.log(shapeCopy);
 
 *****************************************************************************************
