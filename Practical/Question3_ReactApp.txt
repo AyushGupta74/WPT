@@ -1,0 +1,92 @@
+QUESTION:
+// write a react class component that displays a table of students and marks from a json array of objects.
+// for example arr=[{name:"Ayush", marks:100},{name:"Pris",marks:100}, ..........}] 
+// put a delete button on every row. If the user clicks the delete button, then that row should be deleted from the array.
+
+####### App.js #######
+
+import React from 'react';
+import './App.css';
+import StudentTable from './StudentTable';
+
+function App() {
+ return (
+    <div className="App">
+      <StudentTable />
+    </div>
+ );
+}
+
+export default App;
+
+*****************************************************************************************
+
+####### StudentTable.js #######
+
+
+import React, { Component } from 'react';
+
+class StudentTable extends Component {
+ constructor(props) {
+    super(props);
+    this.state = {
+      students: {
+        1: { name: 'Ayush', marks: 100 },
+        2: { name: 'Pris', marks: 99 },
+        3: { name: 'Aditya', marks: 98 },
+        4: { name: 'Adarsh', marks: 95 },
+        5: { name: 'Aman', marks: 96 }
+        // add more student data here
+      },
+    };
+ }
+
+ //deleteStudent function that filters out the student at the given index from the state.
+ //Then, it maps over the students array and creates a new table row for each student.
+ deleteStudent = (id) => {
+    const { students } = this.state;
+    this.setState({
+      students: Object.keys(students).reduce((acc, key) => {
+        if (key !== id.toString()) {
+          acc[key] = students[key];
+        }
+        return acc;
+      }, {}),
+    });
+ };
+
+ render() {
+    const { students } = this.state;
+    return (
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Marks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(students).map((id) => (
+              <tr key={id}>
+                <td>{students[id].name}</td>
+                <td>{students[id].marks}</td>
+                <td>
+                  {/* The row includes a delete button that calls the deleteStudent function when clicked. */}
+                 <button onClick={() => this.deleteStudent(id)}>
+                    Delete
+                 </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+ }
+}
+
+export default StudentTable;
+
+*****************************************************************************************

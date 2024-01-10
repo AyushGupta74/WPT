@@ -1,0 +1,29 @@
+<!-- 
+    using JQuery:
+Show a text field that asccepts a string
+show a button 
+on click of the button show the textfield content in a p tag such that the textfield content is shown in reverse
+for example, if user enters hello in the textfield, show olleh in the p tag-->
+
+<html>
+    <head>
+        <title>Text Reversal</title>
+        <script src="./jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+            $('#reverse').on('click', function() {
+               let inputText = $('#text').val();
+               let reversedText = inputText.split('').reverse().join('');
+               $('#result').text(reversedText);
+            });
+           });
+        </script>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" id="text" name="text" placeholder="Enter your text here...">
+            <button type="button" id="reverse">Reverse</button>
+        </form>
+        <p id="result"></p>
+    </body>
+</html>

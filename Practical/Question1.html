@@ -1,0 +1,20 @@
+<!-- write html that shows a date textfield. when the date is changed show the selected date in the p tag that says that You selected: show the date selected .One more p tag that shows today is : show today's date -->
+
+<html>
+<head>
+    <title>Date Selection</title>
+    <!-- <script>curr=document.write(new Date().toISOString().slice(0,10));</script> -->
+    <script>
+        function updateDate() {
+            var date = document.getElementById('date').value;
+            document.getElementById('selectedDate').innerText = 'You selected: ' + date;
+        }
+    </script>
+</head>
+<body>
+    <label for="date">Select a date:</label>
+    <input type="date" id="date" name="date" onchange="updateDate()">
+    <p id="selectedDate"></p>
+    <p id="curr">Today is: 2024-01-08</p>
+</body>
+</html>
